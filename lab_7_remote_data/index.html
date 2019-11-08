@@ -40,7 +40,7 @@
 
               route = info.map(a => a.route_id);
 
-              title = info.map(a => a.title);
+              title1 = info.map(a => a.title);
 
               return info;
 
@@ -56,13 +56,13 @@
 
 
 
-              for (i = 0; i < data.length; i++) {
+              for (i = 0; i < list.length; i++) {
 
                   yuh = document.createElement("li");
 
                   yuh.innerText = route[i] + " " + title[i].replace(route[i], "");
 
-                  content.appendChild(yuh);
+                  content.appendchild(yuh);
 
               }
 
@@ -74,7 +74,7 @@
 
               const header = document.querySelector(".header");
 
-              header.innerHTML = "UMD Bus Route " + route[1] + title[1].replace(route[1], "");
+              header.innterHTML = "UMD Bus Route" + route[15] + "" + title[rnd[0]].replace(route[15], "");
 
               return title1;
 

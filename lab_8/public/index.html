@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Test AJAX page</title>
+  <link rel="stylesheet" type="text/css" href="./lab_styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="wrapper">
+      <div class="header">API Loader</div>
+      <button class="button" onclick="loadData()">Load Some JSON from a server</button>
+      <div class="content"></div>
+      <div class="footer"></div>
+    </div>
+  </div>
+  <script>
+    function loadData() {
+      console.log('fetch'); // confirm code is running on click
+      fetch('/api')
+        .then(res => res.json())
+        .then(res => {
+          console.log(res); // logging step to check what we got
+          return res;
+        })
+        .then(res => {
+          name_course = res.data.map(a => a.course_id);
+          console.log("name_course[]:", name_course);
+
+          const content = document.querySelector(".content");
+          content.innerHTML = " ";
+          content.style.listStyleType = "decimal";
+
+          class_code = [];
+          for (i = 0; i < courseNames.length; i++){
+            if (name_course[i].includes("INST")){
+              class_code.push(name_course[i]);
+            }
+          }
+          console.log("class_code[]:", class_code);
+
+          for (i = 0; i < class_code.length; i++){
+            yuh = document.createElement("li");
+            yuh.innterText = class_code[i];
+            content.appendChild(yuh);
+          }
+    }
+  </script>
+</body>
+
+</html>
